@@ -30,4 +30,7 @@ class ipset::params (
       $firewall_service = 'iptables'
     }
   }
+  else {
+    $firewall_service = undef
+  }
 }

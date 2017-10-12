@@ -1,6 +1,4 @@
-class ipset::install(
-  $firewall_service = $::ipset::params::firewall_service
-){
+class ipset::install {
   include ipset::params
 
   $cfg = $::ipset::params::config_path
@@ -56,6 +54,9 @@ class ipset::install(
       }
       # dependency is covered by running ipset before RC scripts suite, where firewall service is
     } elsif $::operatingsystemmajrelease == '7' {
+      # for management of dependencies
+      $firewall_service = $::ipset::params::firewall_service
+
       # systemd service definition, there is no script in COS7
       file { '/usr/lib/systemd/system/ipset.service':
         owner   => 'root',

@@ -7,7 +7,6 @@ define ipset (
   $ignore_contents = false,
   # keep definition file and in-kernel runtime state in sync
   $keep_in_sync = true,
-  $firewall_service = $::ipset::params::firewall_service,
 ) {
   include ipset::params
 
